@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mathe bis 10 000 – Interaktive Lernseite</title>
+<style>
+:root{
+  --blue:#164a84; --blue2:#eaf3ff; --orange:#ed7d22; --green:#2e7d32;
+  --red:#b3261e; --ink:#18212b; --muted:#5f6b76; --card:#fff; --bg:#f4f7fb;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
+header{background:linear-gradient(135deg,var(--blue),#2f70b7);color:#fff;padding:48px 20px 38px}
+header .wrap, main{max-width:1050px;margin:auto}
+h1{margin:0 0 8px;font-size:clamp(2rem,5vw,3.5rem)}
+header p{margin:0;max-width:760px;font-size:1.1rem}
+main{padding:28px 18px 60px}
+.card{background:var(--card);border-radius:18px;padding:24px;margin:18px 0;box-shadow:0 8px 28px rgba(24,33,43,.08);border:1px solid #e3e9f0}
+h2{color:var(--blue);margin-top:0}
+h3{margin-bottom:8px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.topic{background:var(--blue2);border-left:6px solid var(--blue);padding:16px;border-radius:12px}
+.example{background:#fff8e7;border-left:6px solid var(--orange);padding:14px;border-radius:10px;margin-top:10px}
+.question{padding:18px;border:1px solid #dce4ed;border-radius:14px;margin:14px 0;background:#fff}
+.question.correct{border-color:#57a85c;background:#f1fbf2}
+.question.incorrect{border-color:#d85d55;background:#fff3f2}
+label{display:block;margin:7px 0}
+input[type=text], input[type=number], textarea, select{
+ width:100%;padding:11px 12px;border:1px solid #b9c5d2;border-radius:10px;font:inherit;background:#fff
+}
+input.blank{display:inline-block;width:150px;margin:0 4px}
+textarea{min-height:100px;resize:vertical}
+button{border:0;border-radius:11px;padding:11px 16px;font-weight:700;cursor:pointer;font-size:1rem}
+.btn{background:var(--blue);color:#fff}
+.btn.secondary{background:#e8eef5;color:var(--ink)}
+.btn.solution{background:#fff1d8;color:#7a4300}
+.feedback{font-weight:700;margin-top:8px}
+.ok{color:var(--green)} .bad{color:var(--red)}
+.answer{display:none;margin-top:10px;padding:12px;background:#eef7ee;border-radius:10px}
+.progress{height:14px;background:#dce4ed;border-radius:999px;overflow:hidden}
+.progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--orange),#f7b24c);transition:.3s}
+.score{font-size:1.15rem;font-weight:800;margin-top:10px}
+nav{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
+nav a{color:#fff;text-decoration:none;background:rgba(255,255,255,.16);padding:8px 12px;border-radius:999px}
+table{width:100%;border-collapse:collapse;margin-top:12px}
+th,td{border:1px solid #cfd8e3;padding:9px;text-align:left}
+th{background:#edf4fb}
+.small{color:var(--muted);font-size:.93rem}
+footer{text-align:center;color:var(--muted);padding:20px}
+@media(max-width:650px){.card{padding:17px} input.blank{width:120px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Mathe bis 10 000</h1>
+    <p>Interaktive Lernseite zu Säulen- und Balkendiagrammen, Piktogrammen, Zahlenstrahl, Nachbarzahlen, Runden, Vergleichen und Ordnen.</p>
+    <nav>
+      <a href="#wissen">Lernwissen</a>
+      <a href="#luecken">Lückentext</a>
+      <a href="#mc">Multiple Choice</a>
+      <a href="#offen">Offene Fragen</a>
+      <a href="#auswertung">Auswertung</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="wissen" class="card">
+<h2>1. Das Wichtigste verständlich zusammengefasst</h2>
+<div class="grid">
+  <div class="topic"><h3>Diagramme lesen</h3>
+  <p>Ein <b>Säulendiagramm</b> zeigt Werte mit senkrechten Säulen. Ein <b>Balkendiagramm</b> nutzt waagerechte Balken. Die Höhe oder Länge wird an der Skala abgelesen.</p>
+  <div class="example">Beispiel: Reicht eine Säule bis 65, beträgt der Wert 65.</div></div>
+
+  <div class="topic"><h3>Piktogramme</h3>
+  <p>In einem Piktogramm steht ein Bildzeichen für eine bestimmte Anzahl. Zuerst liest man die Legende, danach zählt man die Symbole.</p>
+  <div class="example">Beispiel: 1 Figur = 100 Besucher. 6 Figuren = 600 Besucher.</div></div>
+
+  <div class="topic"><h3>Zahlenstrahl</h3>
+  <p>Auf dem Zahlenstrahl werden Zahlen von links nach rechts größer. Entscheidend ist der Abstand zwischen zwei Teilstrichen.</p>
+  <div class="example">Zwischen 4000 und 5000 liegt in der Mitte 4500.</div></div>
+
+  <div class="topic"><h3>Nachbarzahlen</h3>
+  <p>Nachbarhunderter sind die Hunderter direkt unter und über einer Zahl. Nachbartausender sind die Tausender direkt unter und über einer Zahl.</p>
+  <div class="example">3421 liegt zwischen 3400 und 3500 sowie zwischen 3000 und 4000.</div></div>
+
+  <div class="topic"><h3>Runden</h3>
+  <p>Beim Runden schaut man auf die nächste Stelle: 0 bis 4 abrunden, 5 bis 9 aufrunden.</p>
+  <div class="example">5709 auf Hunderter gerundet: 5700. 7923 auf Tausender: 8000.</div></div>
+
+  <div class="topic"><h3>Vergleichen und Ordnen</h3>
+  <p>Vergleiche zuerst die Tausender, dann Hunderter, Zehner und Einer. Nutze <b>&lt;</b>, <b>&gt;</b> oder <b>=</b>.</p>
+  <div class="example">4235 &gt; 1816. Aufsteigend: 1970, 3420, 4290, 6870.</div></div>
+
+  <div class="topic"><h3>Vorgänger und Nachfolger</h3>
+  <p>Der Vorgänger ist genau 1 kleiner, der Nachfolger genau 1 größer.</p>
+  <div class="example">Zu 3462 gehören 3461 und 3463.</div></div>
+
+  <div class="topic"><h3>Zahlenfolgen</h3>
+  <p>Bestimme zuerst die Schrittweite. Danach führst du die Folge immer mit demselben Rechenschritt fort.</p>
+  <div class="example">3300, 3400, 3500, 3600 … Schrittweite +100.</div></div>
+</div>
+</section>
+
+<section id="luecken" class="card">
+<h2>2. Lückentext – 10 Aufgaben</h2>
+<p class="small">Trage die passende Zahl oder den passenden Begriff ein.</p>
+<div id="fillQuestions"></div>
+<button class="btn" onclick="checkFill()">Lückentext prüfen</button>
+</section>
+
+<section id="mc" class="card">
+<h2>3. Multiple Choice – 10 Fragen</h2>
+<div id="mcQuestions"></div>
+<button class="btn" onclick="checkMC()">Multiple Choice prüfen</button>
+</section>
+
+<section id="offen" class="card">
+<h2>4. Offene Fragen – 5 Aufgaben</h2>
+<p class="small">Schreibe deinen Rechenweg oder deine Begründung auf. Die Musterlösung kannst du anschließend einblenden.</p>
+<div id="openQuestions"></div>
+</section>
+
+<section id="auswertung" class="card">
+<h2>5. Auswertung</h2>
+<div class="progress"><div id="bar"></div></div>
+<div id="score" class="score">Noch keine Aufgaben ausgewertet.</div>
+<button class="btn secondary" onclick="resetAll()">Alles zurücksetzen</button>
+</section>
+</main>
+
+<footer>Interaktive Lernseite – Mathematik bis 10 000</footer>
+
+<script>
+const fillData = [
+ {q:'Ein Diagramm mit senkrechten Säulen heißt _____.', a:['säulendiagramm','saeulendiagramm']},
+ {q:'Ein Diagramm mit waagerechten Balken heißt _____.', a:['balkendiagramm']},
+ {q:'Auf dem Zahlenstrahl werden die Zahlen von links nach rechts _____.', a:['größer','groesser']},
+ {q:'Die Zahl genau vor 5000 heißt _____.', a:['4999']},
+ {q:'Die Zahl genau nach 5000 heißt _____.', a:['5001']},
+ {q:'Die Nachbarhunderter von 3421 sind 3400 und _____.', a:['3500']},
+ {q:'Die Nachbartausender von 3421 sind 3000 und _____.', a:['4000']},
+ {q:'5709 auf Hunderter gerundet ergibt _____.', a:['5700']},
+ {q:'7923 auf Tausender gerundet ergibt _____.', a:['8000']},
+ {q:'Zwischen 4000 und 5000 liegt genau in der Mitte die Zahl _____.', a:['4500']}
+];
+
+const mcData = [
+ {q:'Welche Zahl ist größer?', opts:['4235','1816','beide gleich'], a:0},
+ {q:'Welche Zeichenfolge ist richtig?', opts:['2170 > 5380','2170 < 5380','2170 = 5380'], a:1},
+ {q:'Was ist der Vorgänger von 1301?', opts:['1300','1302','1201'], a:0},
+ {q:'Was ist der Nachfolger von 9999?', opts:['9998','10 000','9000'], a:1},
+ {q:'Wie lautet die Schrittweite: 3300, 3400, 3500, 3600?', opts:['+10','+100','+1000'], a:1},
+ {q:'Welche Zahl liegt zwischen 2400 und 2600 genau in der Mitte?', opts:['2450','2500','2550'], a:1},
+ {q:'Wie wird 1800 auf Tausender gerundet?', opts:['1000','1800','2000'], a:2},
+ {q:'Wie wird 5450 auf Hunderter gerundet?', opts:['5400','5500','5000'], a:1},
+ {q:'Welche Reihenfolge ist aufsteigend?', opts:['6870, 4290, 3420, 1970','1970, 3420, 4290, 6870','3420, 1970, 6870, 4290'], a:1},
+ {q:'Ein Piktogramm zeigt 6 Figuren. Eine Figur steht für 100 Besucher. Wie viele Besucher sind es?', opts:['60','600','6000'], a:1}
+];
+
+const openData = [
+ {q:'Ein Säulendiagramm zeigt für einen Schwimmkurs 65 Mädchen und 60 Jungen. Wie viele Kinder nehmen insgesamt teil?', sol:'65 + 60 = 125. Insgesamt nehmen 125 Kinder teil.'},
+ {q:'Ein Balkendiagramm zeigt 1400 Besucher im Juni, 1050 im Juli und 1250 im August. In welchem Monat waren es die meisten und wie viele mehr als im Juli?', sol:'Im Juni waren es mit 1400 Besuchern am meisten. Das sind 1400 − 1050 = 350 Besucher mehr als im Juli.'},
+ {q:'Nenne die Nachbarhunderter und Nachbartausender von 5709.', sol:'Nachbarhunderter: 5700 und 5800. Nachbartausender: 5000 und 6000.'},
+ {q:'Runde 8295 auf Hunderter und auf Tausender. Erkläre kurz.', sol:'Auf Hunderter: 8300, weil die Zehnerstelle 9 ist. Auf Tausender: 8000, weil die Hunderterstelle 2 ist.'},
+ {q:'Ordne die Zahlen 6565, 6865, 5650 und 5850 von klein nach groß.', sol:'5650 < 5850 < 6565 < 6865.'}
+];
+
+function norm(s){return s.trim().toLowerCase().replace(/\s+/g,'').replace(/\./g,'').replace(/,/g,'');}
+
+function render(){
+ const f=document.getElementById('fillQuestions');
+ fillData.forEach((x,i)=>{
+  f.insertAdjacentHTML('beforeend',`<div class="question" id="fbox${i}">
+   <b>${i+1}.</b> ${x.q.replace('_____',`<input class="blank" id="f${i}" type="text" aria-label="Antwort ${i+1}">`)}
+   <div class="feedback" id="ff${i}"></div></div>`);
+ });
+ const m=document.getElementById('mcQuestions');
+ mcData.forEach((x,i)=>{
+  let opts=x.opts.map((o,j)=>`<label><input type="radio" name="mc${i}" value="${j}"> ${o}</label>`).join('');
+  m.insertAdjacentHTML('beforeend',`<div class="question" id="mbox${i}"><b>${i+1}. ${x.q}</b>${opts}<div class="feedback" id="mf${i}"></div></div>`);
+ });
+ const o=document.getElementById('openQuestions');
+ openData.forEach((x,i)=>{
+  o.insertAdjacentHTML('beforeend',`<div class="question"><b>${i+1}. ${x.q}</b>
+   <textarea placeholder="Deine Antwort"></textarea>
+   <button class="btn solution" onclick="toggleSol(${i})">Musterlösung anzeigen</button>
+   <div class="answer" id="sol${i}">${x.sol}</div></div>`);
+ });
+}
+let fillScore=null, mcScore=null;
+function checkFill(){
+ let score=0;
+ fillData.forEach((x,i)=>{
+  const v=norm(document.getElementById('f'+i).value);
+  const ok=x.a.map(norm).includes(v);
+  const box=document.getElementById('fbox'+i), fb=document.getElementById('ff'+i);
+  box.classList.remove('correct','incorrect'); box.classList.add(ok?'correct':'incorrect');
+  fb.className='feedback '+(ok?'ok':'bad');
+  fb.textContent=ok?'Richtig.':'Noch nicht richtig.';
+  if(ok) score++;
+ });
+ fillScore=score; updateScore();
+}
+function checkMC(){
+ let score=0;
+ mcData.forEach((x,i)=>{
+  const el=document.querySelector(`input[name="mc${i}"]:checked`);
+  const ok=el && Number(el.value)===x.a;
+  const box=document.getElementById('mbox'+i), fb=document.getElementById('mf'+i);
+  box.classList.remove('correct','incorrect'); box.classList.add(ok?'correct':'incorrect');
+  fb.className='feedback '+(ok?'ok':'bad');
+  fb.textContent=ok?'Richtig.':`Richtig wäre: ${x.opts[x.a]}`;
+  if(ok) score++;
+ });
+ mcScore=score; updateScore();
+}
+function updateScore(){
+ let done=0,total=0;
+ if(fillScore!==null){done+=fillScore;total+=10}
+ if(mcScore!==null){done+=mcScore;total+=10}
+ const max=(fillScore!==null?10:0)+(mcScore!==null?10:0);
+ const pct=max?Math.round(done/max*100):0;
+ document.getElementById('bar').style.width=pct+'%';
+ document.getElementById('score').textContent=max?`${done} von ${max} automatisch bewerteten Aufgaben richtig (${pct} %).`:'Noch keine Aufgaben ausgewertet.';
+}
+function toggleSol(i){
+ const el=document.getElementById('sol'+i);
+ el.style.display=el.style.display==='block'?'none':'block';
+}
+function resetAll(){
+ document.querySelectorAll('input[type=text], textarea').forEach(e=>e.value='');
+ document.querySelectorAll('input[type=radio]').forEach(e=>e.checked=false);
+ document.querySelectorAll('.question').forEach(e=>e.classList.remove('correct','incorrect'));
+ document.querySelectorAll('.feedback').forEach(e=>e.textContent='');
+ document.querySelectorAll('.answer').forEach(e=>e.style.display='none');
+ fillScore=null;mcScore=null;updateScore();window.scrollTo({top:0,behavior:'smooth'});
+}
+render();
+</script>
+</body>
+</html>
